@@ -1,0 +1,1 @@
+export const BASE_URL = "https://connectify-backend-676p.onrender.com"
