@@ -49,7 +49,7 @@ const Post = ({
       }
 
       const response = await axios.post(
-        `https://connectifybackendnew.onrender.com/api/v1/posts/${postid}`
+        `https://connectifybackend-kccs.onrender.com/api/v1/posts/${postid}`
       );
       console.log("Response:", response);
 
@@ -84,7 +84,7 @@ const Post = ({
         
         // Now you can use 'currentUserId' in your axios post request
         const response = await axios.post(
-          `https://connectifybackendnew.onrender.com/api/v1/comments/post-comment`,
+          `https://connectifybackend-kccs.onrender.com/api/v1/comments/post-comment`,
           {
             commenter: user._id, // Use currentUserId as commenter
             comment: newComment,
@@ -125,7 +125,7 @@ const Post = ({
   const handleDeleteComment = async (commentId) => {
     try {
       const response = await axios.delete(
-        `https://connectifybackendnew.onrender.com/api/v1/comments/${commentId}`
+        `https://connectifybackend-kccs.onrender.com/api/v1/comments/${commentId}`
       );
 
       if (response.status === 200) {

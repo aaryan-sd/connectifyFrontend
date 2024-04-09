@@ -1,1 +1,1 @@
-export const BASE_URL = "https://connectify-backend-676p.onrender.com"
+export const BASE_URL = "https://connectifybackend-kccs.onrender.com"

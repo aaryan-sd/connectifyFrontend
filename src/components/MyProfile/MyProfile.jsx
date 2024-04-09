@@ -20,8 +20,8 @@ const MyProfile = () => {
           const targetUsername = user ? user.username : routeUsername;
   
           const [profileResponse, postsResponse] = await Promise.all([
-            axios.get(`https://connectifybackendnew.onrender.com/api/v1/users/profile/${targetUsername}`),
-            axios.get(`https://connectifybackendnew.onrender.com/api/v1/posts/p/${targetUsername}`),
+            axios.get(`https://connectifybackend-kccs.onrender.com/api/v1/users/profile/${targetUsername}`),
+            axios.get(`https://connectifybackend-kccs.onrender.com/api/v1/posts/p/${targetUsername}`),
           ]);
   
           setUserData(profileResponse.data.data[0]);

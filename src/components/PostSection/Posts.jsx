@@ -6,7 +6,7 @@ import './Posts.css';
 // Define the fetchUserData function here
 const fetchUserData = async (username) => {
   try {
-    const response = await axios.get(`https://connectifybackendnew.onrender.com/api/v1/users/profile/${username}`);
+    const response = await axios.get(`https://connectifybackend-kccs.onrender.com/api/v1/users/profile/${username}`);
     return response.data.data[0];
   } catch (error) {
     console.error('Error fetching user data:', error);
@@ -20,14 +20,14 @@ const Posts = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('https://connectifybackendnew.onrender.com/api/v1/posts/all-posts');
+        const response = await axios.get('https://connectifybackend-kccs.onrender.com/api/v1/posts/all-posts');
         const fetchedPosts = response.data.data; // Assuming the posts are in the 'data' property
 
         // Fetch user profiles and comments for each post
         const updatedPosts = await Promise.all(
           fetchedPosts.map(async (post) => {
             const userData = await fetchUserData(post.postuploader.username);
-            const commentsResponse = await axios.get(`https://connectifybackendnew.onrender.com/api/v1/comments/${post._id}`);
+            const commentsResponse = await axios.get(`https://connectifybackend-kccs.onrender.com/api/v1/comments/${post._id}`);
             const comments = commentsResponse.data.data;
             console.log("commentsResponse: ", commentsResponse)
             return { ...post, userProfilePicture: userData.profilepicture, comments };

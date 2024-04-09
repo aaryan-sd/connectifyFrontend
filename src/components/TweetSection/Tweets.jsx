@@ -7,7 +7,7 @@ const BACKEND_URL = process.env.BACKEND_URL
 // Define the fetchUserData function here
 const fetchUserData = async (username) => {
   try {
-    const response = await axios.get(`https://connectifybackendnew.onrender.com/api/v1/users/profile/${username}`);
+    const response = await axios.get(`https://connectifybackend-kccs.onrender.com/api/v1/users/profile/${username}`);
     return response.data.data[0];
   } catch (error) {
     console.error('Error fetching user data:', error);
@@ -21,14 +21,14 @@ const Tweets = () => {
   useEffect(() => {
     const fetchTweets = async () => {
       try {
-        const response = await axios.get('https://connectifybackendnew.onrender.com/api/v1/tweets/all-tweets');
+        const response = await axios.get('https://connectifybackend-kccs.onrender.com/api/v1/tweets/all-tweets');
         const fetchedTweets = response.data.data; // Assuming the posts are in the 'data' property
 
         // Fetch user profiles and comments for each post
         const updatedTweets = await Promise.all(
           fetchedTweets.map(async (tweet) => {
             const userData = await fetchUserData(tweet.tweetwriter.username);
-            const commentsResponse = await axios.get(`https://connectifybackendnew.onrender.com/api/v1/comments/t/${tweet._id}`);
+            const commentsResponse = await axios.get(`https://connectifybackend-kccs.onrender.com/api/v1/comments/t/${tweet._id}`);
             const comments = commentsResponse.data.data;
             console.log("tweetsResponse: ", commentsResponse)
             return { ...tweet, userProfilePicture: userData.profilepicture, comments };

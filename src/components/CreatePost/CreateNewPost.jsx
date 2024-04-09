@@ -40,7 +40,7 @@ const CreateNewPost = () => {
       formDataForBackend.append('caption', formData.caption);
 
       // Assuming your backend is running on http://localhost:8000
-      const response = await axios.post('https://connectifybackendnew.onrender.com/api/v1/posts/create-post', formDataForBackend, {
+      const response = await axios.post('https://connectifybackend-kccs.onrender.com/api/v1/posts/create-post', formDataForBackend, {
         withCredentials: true,  
         headers: {
           'Content-Type': 'multipart/form-data',

@@ -54,7 +54,7 @@ const Tweet = ({
       }
 
       const response = await axios.post(
-        `https://connectifybackendnew.onrender.com/api/v1/tweets/${tweetid}`
+        `https://connectifybackend-kccs.onrender.com/api/v1/tweets/${tweetid}`
       );
       console.log("Response:", response);
 
@@ -89,7 +89,7 @@ const Tweet = ({
         
         // Now you can use 'currentUserId' in your axios post request
         const response = await axios.post(
-          `https://connectifybackendnew.onrender.com/api/v1/comments/reply-tweet`,
+          `https://connectifybackend-kccs.onrender.com/api/v1/comments/reply-tweet`,
           {
             commenter: user._id, // Use currentUserId as commenter
             comment: newComment,
@@ -113,7 +113,7 @@ const Tweet = ({
   const handleDeleteComment = async (commentId) => {
     try {
       const response = await axios.delete(
-        `https://connectifybackendnew.onrender.com/api/v1/comments/${commentId}`
+        `https://connectifybackend-kccs.onrender.com/api/v1/comments/${commentId}`
       );
 
       if (response.status === 200) {

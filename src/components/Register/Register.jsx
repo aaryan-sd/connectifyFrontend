@@ -35,7 +35,7 @@ const Register = () => {
         formDataForBackend.append('password', formData.password);
         formDataForBackend.append('profilepicture', formData.profilepicture);
   
-        const response = await axios.post('https://connectifybackendnew.onrender.com/api/v1/users/register', formDataForBackend, {
+        const response = await axios.post('https://connectifybackend-kccs.onrender.com/api/v1/users/register', formDataForBackend, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },

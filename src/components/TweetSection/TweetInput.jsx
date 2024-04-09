@@ -16,7 +16,7 @@ const TweetInput = () => {
   const handleSubmitTweet = async () => {
     try {
       const response = await axios.post(
-        'https://connectifybackendnew.onrender.com/api/v1/tweets/write-tweet',
+        'https://connectifybackend-kccs.onrender.com/api/v1/tweets/write-tweet',
         {
             tweetwriter: user._id,
             tweet: newTweet,

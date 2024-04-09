@@ -17,7 +17,7 @@ export const UserProvider = ({ children }) => {
 
   const logoutUser = async () => {
     try {
-      await axios.post('https://connectifybackendnew.onrender.com/api/v1/users/logout');
+      await axios.post('https://connectifybackend-kccs.onrender.com/api/v1/users/logout');
       setUser(null);
       localStorage.removeItem('user');
     } catch (error) {

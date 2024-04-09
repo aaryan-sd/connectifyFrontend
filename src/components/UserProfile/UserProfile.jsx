@@ -17,8 +17,8 @@ const UserProfile = () => {
     const fetchUserProfile = async () => {
       try {
         const [profileResponse, postsResponse] = await Promise.all([
-          axios.get(`https://connectifybackendnew.onrender.com/api/v1/users/profile/${username}`),
-          axios.get(`https://connectifybackendnew.onrender.com/api/v1/posts/p/${username}`),
+          axios.get(`https://connectifybackend-kccs.onrender.com/api/v1/users/profile/${username}`),
+          axios.get(`https://connectifybackend-kccs.onrender.com/api/v1/posts/p/${username}`),
         ]);
 
         setUserData(profileResponse.data.data[0]);
