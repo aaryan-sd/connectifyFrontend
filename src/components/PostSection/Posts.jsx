@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Post from './Post';
 import './Posts.css';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 // Define the fetchUserData function here
 const fetchUserData = async (username) => {
@@ -16,6 +17,7 @@ const fetchUserData = async (username) => {
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -35,6 +37,7 @@ const Posts = () => {
         );
 
         setPosts(updatedPosts);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching posts:', error);
       }
@@ -59,21 +62,27 @@ const Posts = () => {
   return (
     <div className="posts-container">
       <div className='feed-title'>Feed</div>
-      {posts.map((post) => (
-        <Post
-          key={post._id}
-          postid={post._id}
-          username={post.postuploader.username}
-          profilepicture={post.userProfilePicture}
-          images={post.images}
-          caption={post.caption}
-          likes={post.likes.length}
-          commentcount={post.comments.length}
-          createdAt={post.createdAt}
-          comments={post.comments} 
-          updateComments={updateComments}
-        />
-      ))}
+      {loading ? ( 
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+          <ClipLoader color="#ffffff" />
+        </div>
+      ) : (
+        posts.map((post) => (
+          <Post
+            key={post._id}
+            postid={post._id}
+            username={post.postuploader.username}
+            profilepicture={post.userProfilePicture}
+            images={post.images}
+            caption={post.caption}
+            likes={post.likes.length}
+            commentcount={post.comments.length}
+            createdAt={post.createdAt}
+            comments={post.comments} 
+            updateComments={updateComments}
+          />
+        ))
+      )}
     </div>
   );
 };
